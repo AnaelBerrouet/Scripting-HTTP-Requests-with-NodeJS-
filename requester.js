@@ -10,7 +10,7 @@ function getAndPrintHTMLChuncks() {
     path: '/http-examples/step1.html'
   };
 
-  http.get(requesOptions, function(req, res) {
+  http.get(requestOptions, function(res) {
 
     res.setEncoding('utf8');
 
@@ -18,8 +18,14 @@ function getAndPrintHTMLChuncks() {
       console.log(err);
     });
 
-    res.on('data', console.log(data,"\n"));
+    res.on('data', function(data) {
+      console.log(data,"\n");
+    });
 
-    res.on('end', res.end(''));
+    res.on('end', function(){
+      console.log("Stream ended");
+    });
   });
 }
+
+getAndPrintHTMLChuncks();
