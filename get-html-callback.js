@@ -1,6 +1,6 @@
 const http = require('https');
 
-function getAndPrintHTML (options, callback) {
+function getHTML (options, callback) {
 
   let buffer = "";
 
@@ -18,7 +18,7 @@ function getAndPrintHTML (options, callback) {
 
     res.on('end', function() {
       console.log("End of stream");
-      console.log(buffer,'\n');
+      callback(buffer);
     });
 
   });
@@ -30,4 +30,8 @@ var requestOptions = {
     path: '/http-examples/step2.html'
   };
 
-getAndPrintHTML(requestOptions);
+function printHTML (html) {
+  console.log(html);
+}
+
+getHTML(requestOptions, printHTML);
