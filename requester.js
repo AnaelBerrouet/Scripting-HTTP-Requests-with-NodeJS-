@@ -1,7 +1,7 @@
 const http = require('https');
 
 
-function getAndPrintHTMLChuncks() {
+function getAndPrintHTMLChunks() {
 // Utilize the https library to GET a given URL.
 // This function should console.log each chunk of data as it is received, concatenated with a newline character ('\n') so you can visualize each chunk.
 
@@ -28,4 +28,4 @@ function getAndPrintHTMLChuncks() {
   });
 }
 
-getAndPrintHTMLChuncks();
+getAndPrintHTMLChunks();
